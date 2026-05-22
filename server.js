@@ -39,7 +39,9 @@ app.post("/upload", upload.single("image"), function(req, res) {
 res.send(imageUrl);
 });
 
-app.listen(3000, function() {
+const PORT = process.env.PORT || 3000;
 
-    console.log("Server dang chay tai cong 3000");
+app.listen(PORT, function() {
+
+    console.log("Server dang chay");
 });
