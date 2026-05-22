@@ -34,7 +34,10 @@ app.get("/", function(req, res) {
 app.post("/upload", upload.single("image"), function(req, res) {
 
     const imageUrl =
-        "http://localhost:3000/uploads/" + req.file.filename;
+    req.protocol + "://" +
+    req.get("host") +
+    "/uploads/" +
+    req.file.filename;
 
 res.send(imageUrl);
 });
